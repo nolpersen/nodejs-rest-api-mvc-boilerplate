@@ -31,15 +31,21 @@ npm start
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 #### Api End Point
-- LIST USER (GET): [http://localhost:3000/api/users](http://localhost:3000/api/users)
-- STORE USER (POST): [http://localhost:3000/api/user/store](http://localhost:3000/api/user/store)
-- SHOW USER (GET): [http://localhost:3000/api/user/:id](http://localhost:3000/api/user/1)
-- UPDATE USER (PUT): [http://localhost:3000/api/user/update/:id](http://localhost:3000/api/user/update/1)
-- DELETE USER (DELETE): [http://localhost:3000/api/user/delete/:id](http://localhost:3000/api/user/delete/1)
+- List User (Get): [http://localhost:3000/api/users](http://localhost:3000/api/users)
+- Store User (Post): [http://localhost:3000/api/user/store](http://localhost:3000/api/user/store)
+- Show User (Get): [http://localhost:3000/api/user/:id](http://localhost:3000/api/user/1)
+- Update User (Put): [http://localhost:3000/api/user/update/:id](http://localhost:3000/api/user/update/1)
+- Delete User (Delete): [http://localhost:3000/api/user/delete/:id](http://localhost:3000/api/user/delete/1)
 
 ## Author
 
 - [Rizali](https://github.com/nolpersen)
+
+## License
+
+MIT
+
+---
 
 
 
