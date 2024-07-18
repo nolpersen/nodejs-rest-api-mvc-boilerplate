@@ -1,0 +1,21 @@
+{
+    "dev": {
+      "driver": "mysql",
+      "host":"127.0.0.1",
+      "user": "root",
+      "password": "bismillah",
+      "database": "nodejs_starter",
+      "port": "3306",
+      "multipleStatements": true
+    },
+  
+    "prod": {
+      "driver": "mysql",
+      "host":"127.0.0.1",
+      "user": "root",
+      "password": "bismillah",
+      "database": "nodejs_starter",
+      "port": "3306",
+      "multipleStatements": true
+    }
+  }
