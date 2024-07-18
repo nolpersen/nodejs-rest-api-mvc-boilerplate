@@ -32,36 +32,48 @@ module.exports = {
             'updated_at': moment.now()
         })
 
-        const data = await User.findOne({
-            id : user.id
-        })
+        const data = await User.findByPk(user.id)
 
         response.ok("New User Created", data, res);
     },
 
-    update: (req, res) => {
-        const response = {
-            'status' : "ok",
-            'message' : "Update User"
-        }
-        res.json(response);
+    update: async (req, res) => {
+        const id = req.params.id;
+        const name = req.body.name;
+
+        await User.update(
+            { name: name },
+            {
+                where: {
+                    id: id,
+                },
+            },
+        );
+
+        const user = await User.findByPk(id);
+
+        response.ok("User Updated", user, res);
     },
 
-    show: (req, res) => {
+    show: async (req, res) => {
         
-        const response = {
-            'status' : "ok",
-            'message' : "Show id: " + req.params.id
-        }
-        res.json(response);
+        const id = req.params.id;
+
+        const user = await User.findByPk(id);
+
+        response.ok("User Found", user, res);
     }, 
 
-    delete: (req, res) => {
-        const response = {
-            'status' : "ok",
-            'message' : "Delete"
-        }
-        res.json(response);
+    delete: async (req, res) => {
+        const id = req.params.id;
+        
+        await User.destroy({
+            where: {
+                id:id
+            }
+        })
+
+        response.ok("User Deleted", null, res);
     }
 
 

@@ -7,5 +7,14 @@ module.exports = {
         }
 
         return res.json(resp)
+    },
+    error: async (message, data, res) => {
+        const resp = {
+            "status" : "error",
+            "message" : message,
+            "data" : data
+        }
+
+        return res.json(resp)
     }
 }
