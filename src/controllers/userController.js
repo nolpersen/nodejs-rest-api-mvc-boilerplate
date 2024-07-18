@@ -1,4 +1,8 @@
 const User = require('../models/user');
+const response = require('../../configs/response')
+const bcrypt = require('bcryptjs');
+const moment = require('moment');
+moment().format();
 
 module.exports = {
     index: async (req, res) => {
@@ -10,20 +14,29 @@ module.exports = {
             ],
             // attributes: { exclude: ['password'] }
         });
-        const response = {
-            'status' : "ok",
-            'message' : "List User",
-            'data' : users
-        }
-        res.json(response);
+       
+        response.ok("List User", users, res);
     },
 
-    store: (req, res) => {
-        const response = {
-            'status' : "ok",
-            'message' : "Store User"
-        }
-        res.json(response);
+    store: async (req, res) => {
+        
+        const name = req.body.name;
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const user = await User.create({
+            'name':name,
+            'email':email,
+            'password': bcrypt.hashSync(password, 8),
+            'created_at': moment.now(),
+            'updated_at': moment.now()
+        })
+
+        const data = await User.findOne({
+            id : user.id
+        })
+
+        response.ok("New User Created", data, res);
     },
 
     update: (req, res) => {

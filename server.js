@@ -5,6 +5,7 @@ const db = require('./configs/db');
 const app = experess();
 const PORT = 3000;
 
+app.use(experess.json())
 app.use('/api', apiRoutes);
 
 db.sync({force:false})

@@ -19,10 +19,29 @@ module.exports = sequelize.define(
             type:DataTypes.STRING
         },
         created_at:{
-            type:DataTypes.TIME
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW
         },
         updated_at:{
-            type:DataTypes.TIME
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW
         }
-    }
+    },
+    { 
+        sequelize, 
+        modelName: 'User',
+        defaultScope: {
+          attributes: {
+            exclude: ['password']
+          },
+          order: [['id', 'DESC']]
+        },
+        scopes: {
+          withPassword: {
+            attributes: {
+              include: ['password']
+            }
+          }
+        }
+      }
 )
